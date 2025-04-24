@@ -1,0 +1,8 @@
+.prettierrc
+nest-cli.json
+package-lock.json
+package.json
+README.md
+test/jest-e2e.json
+tsconfig.build.json
+tsconfig.json
