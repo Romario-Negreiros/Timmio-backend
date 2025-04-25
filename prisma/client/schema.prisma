@@ -13,7 +13,7 @@ model Role {
 
 generator client {
   provider        = "prisma-client-js"
-  output          = "../generated/prisma"
+  output          = "../client"
   previewFeatures = ["prismaSchemaFolder"]
 }
 
