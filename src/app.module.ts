@@ -12,7 +12,5 @@ import OrmConfig from "./config/orm.config";
     ConfigModule.forRoot({ isGlobal: true }),
     AuthModule,
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
