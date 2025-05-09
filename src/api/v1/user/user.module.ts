@@ -1,12 +1,11 @@
 import { Module } from "@nestjs/common";
-
-import { User } from "@/domain/entities";
-import { UserService } from "./user.service";
-import { UserRepository } from "./user.repository";
 import { DataSource } from "typeorm";
 
+import { User } from "@/domain/entities";
+import { UserController, UserService, UserRepository } from ".";
+
 @Module({
-  imports: [],
+  controllers: [UserController],
   providers: [
     UserService,
     {
@@ -17,5 +16,6 @@ import { DataSource } from "typeorm";
       inject: [DataSource],
     },
   ],
+  exports: [UserService],
 })
 export class UserModule {}

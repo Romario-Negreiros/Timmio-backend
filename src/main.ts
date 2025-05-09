@@ -2,12 +2,19 @@ import { NestFactory } from "@nestjs/core";
 import { VersioningType } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from "@nestjs/platform-fastify";
 
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
   // #region App config
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+  );
 
   const configService = app.get(ConfigService);
   const apiUrlPrefix = configService.get<string>("API_URL_PREFIX") || "";
